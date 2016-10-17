@@ -1,0 +1,65 @@
+{
+  "name": "angular-app-boilerplate",
+  "version": "1.0.0",
+  "description": "Angular js app boilerplate with webpack 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start --env.test",
+    "validate-webpack:dev": "npm run lint && webpack-validator webpack.config.js --env.dev",
+    "validate-webpack:prod": "npm run lint && webpack-validator webpack.config.js --env.prod",
+    "lint": "esw --color src/scripts/*.js",
+    "lint:watch": "esw -w --color src/scripts/*.js",
+    "clean-dist": "rimraf dist",
+    "build": "npm run clean-dist && npm run validate-webpack:dev && npm run test && webpack --env.dev --progress",
+    "build:watch": "npm run clean-dist && npm run validate-webpack:dev && webpack --env.dev --progress -w",
+    "build:prod": "npm run clean-dist && npm run validate-webpack:prod && npm run test && webpack --env.prod --progress",
+    "start": "webpack-dev-server --progress --profile --content-base dist --env.dev",
+    "start:prod": "webpack-dev-server --progress --profile --content-base dist --env.prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarjanMitev/angular-app-boilerplate.git"
+  },
+  "author": "Marjan Mitev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarjanMitev/angular-app-boilerplate/issues"
+  },
+  "homepage": "https://github.com/MarjanMitev/angular-app-boilerplate#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "babel-runtime": "^6.11.6",
+    "es6-promise": "^4.0.5",
+    "less": "^2.7.1",
+    "normalize.css": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-stage-2": "^6.17.0",
+    "eslint": "^3.8.0",
+    "eslint-watch": "^2.1.14",
+    "expect": "^1.20.2",
+    "exports-loader": "^0.6.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
+    "imports-loader": "^0.6.5",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "^1.8.0",
+    "less-loader": "^2.2.3",
+    "node-sass": "^3.10.1",
+    "rimraf": "^2.5.4",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7"
+  }
+}
